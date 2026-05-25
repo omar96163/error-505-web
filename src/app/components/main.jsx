@@ -219,7 +219,7 @@ const MangaCard = ({ item, showRead = false }) => (
 
 // Horizontal scrollable row
 const CardRow = ({ items, showRead = false }) => (
-  <div className="flex items-center justify-center gap-5 mb-16">
+  <div className="flex items-center justify-center flex-wrap gap-5 mb-16">
     {items.map((item) => (
       <div key={item.id}>
         <MangaCard item={item} showRead={showRead} />
@@ -304,7 +304,7 @@ const HomePage = () => {
         {/* ── Exclusive Content ── */}
         <section className="px-4">
           <SectionHeader title="Exclusive Content" />
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center flex-wrap gap-5">
             {exclusiveContent.map((item) => (
               <ExclusiveCard key={item.id} item={item} />
             ))}
@@ -332,7 +332,7 @@ const HomePage = () => {
         {/* ── Blogs ── */}
         <section className="px-4 mb-44">
           <SectionHeader title="Blogs" />
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center flex-wrap gap-5">
             {blogs.map((item) => (
               <BlogCard key={item.id} item={item} />
             ))}

@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="relative w-full h-[251px] flex items-center justify-evenly">
+    <div className="relative w-full min-h-[251px] flex items-center justify-evenly flex-wrap lg:gap-0 gap-25 ">
       <div
         className="absolute inset-0 -z-10 blur-2xl opacity-60
         bg-linear-to-r from-[#B8D8FF] from-25% via-[#CC4699] via-50% via-[#1BC6BD] via-75% to-[#673E7D] to-100%"
