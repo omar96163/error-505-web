@@ -263,11 +263,14 @@ const ExclusiveCard = ({ item }) => (
 
 // Blog Card
 const BlogCard = ({ item }) => (
-  <div className="w-[451px] bg-white/5 border border-white/10 rounded-lg overflow-hidden hover:border-[#CB4699]/50 transition-colors">
+  <div
+    className="w-[290px] sm:w-[451px] shrink-0 bg-white/5 border border-white/10 rounded-lg overflow-hidden 
+   hover:border-[#CB4699]/50 transition-colors"
+  >
     <img
       src={item.cover}
       alt={item.title}
-      className="w-full h-[270px] object-cover"
+      className="w-full h-[180px] sm:h-[270px] object-cover"
       onError={(e) => {
         e.target.style.display = "none";
       }}
@@ -283,7 +286,7 @@ const BlogCard = ({ item }) => (
         href="#"
         className="text-[#CB4699] text-[10px] font-bold mt-2 inline-block hover:underline"
       >
-        Read More &gt;
+        Read More &gt;&gt;
       </a>
     </div>
   </div>
@@ -333,7 +336,7 @@ const HomePage = () => {
         {/* ── Blogs ── */}
         <section className="px-4 mb-44">
           <SectionHeader title="Blogs" />
-          <div className="flex items-center justify-center flex-wrap gap-5">
+          <div className="flex items-center gap-5 overflow-x-auto overflow-y-hidden justify-start 2xl:justify-center pb-5">
             {blogs.map((item) => (
               <BlogCard key={item.id} item={item} />
             ))}
