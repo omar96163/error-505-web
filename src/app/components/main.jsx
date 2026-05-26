@@ -181,21 +181,21 @@ const SectionHeader = ({ title, href = "#" }) => (
 
 // Small Manga Card (Trending / Just Dropped / Top Picks)
 const MangaCard = ({ item, showRead = false }) => (
-  <div className="hover:translate-y-1.5 transition-all duration-300">
+  <div className="hover:translate-y-1.5 transition-all duration-300 w-[195px] md:w-[263px] shrink-0">
     <div
       className="relative rounded-lg overflow-hidden border border-white/20 bg-gray-900 transition-all duration-300 
-      hover:translate-y-1.5 hover:shadow-[0_0_20px_0_rgba(255,255,255,0.25)] shrink-0"
+      hover:translate-y-1.5 hover:shadow-[0_0_20px_0_rgba(255,255,255,0.25)]"
     >
       <img
         src={item.cover}
         alt={item.title}
-        className="w-[195px] h-[268px] md:w-[263px] md:h-[406px] object-cover"
+        className="w-full h-[268px] md:h-[406px] object-cover"
         onError={(e) => {
           e.target.style.background = "#1a1a2e";
           e.target.style.display = "none";
         }}
       />
-      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent"/>
+      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent" />
       <div className="absolute bottom-2 left-2">
         <span className="bg-[#CB4699] text-white text-[15px] font-black px-1.5 py-0.5 rounded">
           {item.ch}
@@ -206,13 +206,13 @@ const MangaCard = ({ item, showRead = false }) => (
       <p className="text-white text-[13px] font-bold truncate">
         {item.type || "THE STYLE"}
       </p>
-      <p className="text-[#CB4699] text-[12px] font-bold">
+      <p className="text-[#CB4699] text-[9px] md:text-[12px] font-bold">
         {item.genre || "ACTION"}
       </p>
       {showRead && (
         <a
           href="#"
-          className="text-[#CB4699] text-[9px] font-bold hover:underline"
+          className="text-[#CB4699] text-[8px] md:text-[9px] font-bold hover:underline"
         >
           {item.read}
         </a>
@@ -225,9 +225,7 @@ const MangaCard = ({ item, showRead = false }) => (
 const CardRow = ({ items, showRead = false }) => (
   <div className="flex items-center gap-5 overflow-x-auto overflow-y-hidden justify-start 2xl:justify-center pb-5">
     {items.map((item) => (
-      <div key={item.id}>
-        <MangaCard item={item} showRead={showRead} />
-      </div>
+      <MangaCard key={item.id} item={item} showRead={showRead} />
     ))}
   </div>
 );
