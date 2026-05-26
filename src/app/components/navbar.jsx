@@ -6,7 +6,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative w-full font-sans">
+    <header className="relative w-full font-sans lg:pt-4 pb-3">
       {/* Background Image */}
       <img
         src="/navbg.png"
@@ -28,7 +28,7 @@ const Navbar = () => {
           {/* Center Actions — Desktop Only */}
           <div className="hidden lg:flex items-center gap-4 p-2 relative border-t-4 border-white rounded-md">
             <div
-              className="absolute left-0 top-0 w-[4px] bg-white origin-top-left"
+              className="absolute left-0 top-0 w-[4px] bg-linear-to-b from-white origin-top-left"
               style={{
                 height: "calc(100% + 4px)",
                 transform: "skewX(-15deg)",
@@ -36,7 +36,7 @@ const Navbar = () => {
               }}
             />
             <div
-              className="absolute right-0 top-0 w-[4px] bg-white origin-top-right"
+              className="absolute right-0 top-0 w-[4px] bg-linear-to-b from-white origin-top-right"
               style={{
                 height: "calc(100% + 4px)",
                 transform: "skewX(15deg)",
@@ -70,35 +70,16 @@ const Navbar = () => {
 
           {/* Right: Language + Hamburger */}
           <div className="flex items-center gap-3 text-white">
-            <button className="bg-[#1f2229] border border-gray-600 px-3 py-1.5 rounded text-xs font-bold shadow hover:bg-[#2b313a] transition-colors flex items-center gap-2">
-              <svg
-                className="w-3.5 h-3.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"
-                />
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M10 2a15.14 15.14 0 0 1 4 8 15.14 15.14 0 0 1-4 8m0-16A15.14 15.14 0 0 0 6 10a15.14 15.14 0 0 0 4 8m-8-8h16"
-                />
-              </svg>
+            <button className="hidden lg:flex rounded text-xs font-bold text-[#1f2229] text-[15px] cursor-pointer">
+              ع
+            </button>
+            <button className="hidden lg:flex bg-[#1f2229] border border-white rounded text-xs font-bold p-1.5 cursor-pointer">
               EN
             </button>
 
             {/* Hamburger — Mobile Only */}
             <button
-              className="lg:hidden flex flex-col justify-center items-center gap-1.5"
+              className="lg:hidden flex flex-col justify-center items-center gap-1.5 cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
@@ -205,16 +186,16 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Bottom Nav Bar */}
+        {/* Bottom Section */}
         <div
-          className="flex items-center justify-evenly bg-[#CB4699] border-t-2 border-b-2 border-white py-1.5"
+          className="hidden lg:flex items-center justify-end bg-[#CB4699] border-t-2 border-b-2 border-white py-1.5"
           style={{
             boxShadow:
               "0 -10px 20px rgba(219, 39, 119, 0.6), 0 10px 20px rgba(219, 39, 119, 0.6)",
           }}
         >
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-white font-bold text-xs sm:text-sm tracking-widest">
+          <nav className="flex items-center gap-6 text-white font-bold text-xs sm:text-sm tracking-widest ">
             <a
               href="#"
               className="border border-white rounded-md px-4 py-1 hover:bg-white hover:text-pink-600 transition-colors bg-white/10"
@@ -236,7 +217,7 @@ const Navbar = () => {
           </nav>
 
           {/* Search — always visible in bottom bar on mobile */}
-          <div className="relative w-48 lg:w-72 mx-auto lg:mx-0">
+          <div className="relative mr-32 ml-36">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 className="w-3.5 h-3.5 text-pink-300"
@@ -256,7 +237,7 @@ const Navbar = () => {
             </div>
             <input
               type="text"
-              className="w-full pl-9 pr-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-pink-300 shadow-inner"
+              className="w-full pl-9 pr-4 py-1.5 rounded-lg text-xs font-bold tracking-widest text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-pink-300 shadow-inner"
               placeholder="SEARCH"
             />
           </div>
