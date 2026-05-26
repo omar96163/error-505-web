@@ -99,40 +99,6 @@ const Navbar = () => {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="lg:hidden bg-[#1f2229]/95 border-t border-white/20 px-4 py-4 flex flex-col gap-4">
-            {/* Mobile Nav Links */}
-            <nav className="flex flex-col gap-2 text-white font-bold text-sm tracking-widest">
-              <a
-                href="#"
-                className="border border-white rounded-md px-4 py-2 bg-white/10 hover:bg-white hover:text-pink-600 transition-colors"
-              >
-                HOME
-              </a>
-              <a
-                href="#"
-                className="px-4 py-2 hover:text-pink-200 transition-colors"
-              >
-                CATEGORIES
-              </a>
-              <a
-                href="#"
-                className="px-4 py-2 hover:text-pink-200 transition-colors"
-              >
-                CREATORS
-              </a>
-              <a
-                href="#"
-                className="px-4 py-2 hover:text-pink-200 transition-colors"
-              >
-                SHOP
-              </a>
-              <a
-                href="#"
-                className="px-4 py-2 hover:text-pink-200 transition-colors"
-              >
-                SUBSCRIPTION
-              </a>
-            </nav>
-
             {/* Mobile Search */}
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -154,24 +120,38 @@ const Navbar = () => {
               </div>
               <input
                 type="text"
-                className="w-full pl-9 pr-4 py-2 rounded-full text-xs font-bold tracking-widest text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-pink-300"
+                className="w-full pl-9 pr-4 py-2 rounded-lg text-xs font-bold tracking-widest text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-pink-300"
                 placeholder="SEARCH"
               />
             </div>
 
             {/* Mobile Auth Buttons */}
             <div className="flex flex-col gap-2">
-              <button className="bg-[#1f2229] hover:bg-[#2b313a] text-white text-xs border border-white font-black py-2.5 px-6 rounded skew-x-[-15deg] shadow-lg transition-colors w-full">
-                <span className="block tracking-widest italic">
-                  BECOME A CREATOR
-                </span>
-              </button>
-              <button className="bg-[#1f2229] hover:bg-[#2b313a] text-white text-xs border border-white font-black py-2.5 px-6 rounded skew-x-[-15deg] shadow-lg transition-colors w-full">
-                <span className="block tracking-widest italic">
-                  JOIN AS READER
-                </span>
-              </button>
-              <div className="flex items-center justify-center gap-2 italic pt-1">
+              <div className="flex gap-2">
+                <button
+                  className="bg-[#1f2229] hover:bg-[#2b313a] text-white text-xs border border-white font-black py-2.5 rounded skew-x-[-15deg] transition-colors w-full"
+                  style={{
+                    boxShadow:
+                      "0 -10px 20px rgba(255, 255, 255, 0.4), 0 10px 20px rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  <span className="block tracking-widest italic">
+                    BECOME A CREATOR
+                  </span>
+                </button>
+                <button
+                  className="bg-[#1f2229] hover:bg-[#2b313a] text-white text-xs border border-white font-black py-2.5 rounded skew-x-[-15deg] transition-colors w-full"
+                  style={{
+                    boxShadow:
+                      "0 -10px 20px rgba(255, 255, 255, 0.4), 0 10px 20px rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  <span className="block tracking-widest italic">
+                    JOIN AS READER
+                  </span>
+                </button>
+              </div>
+              <div className="flex items-center justify-start gap-2 italic pt-1">
                 <span className="text-[#CB4699] font-medium tracking-wide text-sm">
                   Already have an account ?
                 </span>
@@ -182,6 +162,55 @@ const Navbar = () => {
                   LOGIN
                 </a>
               </div>
+            </div>
+
+            {/* Mobile Nav Links */}
+            <nav className="flex flex-col gap-2 text-white font-bold text-sm tracking-widest">
+              <a
+                href="#"
+                className="px-4 py-2 hover:text-pink-200 transition-colors"
+              >
+                HOME
+              </a>
+              <div className="h-px bg-linear-to-r via-white"></div>
+              <a
+                href="#"
+                className="px-4 py-2 hover:text-pink-200 transition-colors"
+              >
+                CATEGORIES
+              </a>
+              <div className="h-px bg-linear-to-r via-white"></div>
+              <a
+                href="#"
+                className="px-4 py-2 hover:text-pink-200 transition-colors"
+              >
+                CREATORS
+              </a>
+              <div className="h-px bg-linear-to-r via-white"></div>
+              <a
+                href="#"
+                className="px-4 py-2 hover:text-pink-200 transition-colors"
+              >
+                SHOP
+              </a>
+              <div className="h-px bg-linear-to-r via-white"></div>
+              <a
+                href="#"
+                className="px-4 py-2 hover:text-pink-200 transition-colors"
+              >
+                SUBSCRIPTION
+              </a>
+              <div className="h-px bg-linear-to-r via-white"></div>
+            </nav>
+
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center gap-2 justify-center mt-5">
+              <button className="bg-[#0c0d0f] text-white border border-white rounded text-xs font-bold p-1.5 cursor-pointer w-full">
+                English
+              </button>
+              <button className="bg-[#1f2229] text-white border border-white rounded text-xs font-bold p-1.5 cursor-pointer w-full">
+                اللغة العربية
+              </button>
             </div>
           </div>
         )}
