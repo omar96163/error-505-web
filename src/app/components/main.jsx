@@ -160,11 +160,11 @@ const blogs = [
 
 // Section Header
 const SectionHeader = ({ title, href = "#" }) => (
-  <div className="flex items-center justify-between mb-4 px-2">
-    <div className="flex-1 h-[1.5px] bg-linear-to-l from-white via-transparent to-transparent" />
+  <div className="flex items-center justify-between mb-4">
+    <div className="hidden lg:flex flex-1 h-[1.5px] bg-linear-to-l from-white via-transparent to-transparent" />
     <div className="relative mx-4">
-      <div className="border-2 border-white rounded px-6 py-1 bg-black/30 shadow-[0_0_10px_0_rgba(255,255,255,1)]">
-        <span className="text-white font-black text-xs tracking-widest uppercase">
+      <div className="lg:border-2 border-white rounded lg:px-6 lg:py-1 lg:bg-black/30 lg:shadow-[0_0_10px_0_rgba(255,255,255,1)]">
+        <span className="text-white lg:font-black text-[15px] lg:text-xs lg:tracking-widest uppercase">
           {title}
         </span>
       </div>
@@ -172,26 +172,30 @@ const SectionHeader = ({ title, href = "#" }) => (
     <div className="flex-1 h-[1.5px] bg-linear-to-r from-white via-transparent to-transparent" />
     <a
       href={href}
-      className="ml-4 text-white text-xs font-bold whitespace-nowrap hover:underline"
+      className="ml-4 text-white text-xs font-bold whitespace-nowrap border-b"
     >
-      See More &gt;
+      See More &gt;&gt;
     </a>
   </div>
 );
 
 // Small Manga Card (Trending / Just Dropped / Top Picks)
 const MangaCard = ({ item, showRead = false }) => (
-  <div className="w-[263px] h-[406px] hover:translate-y-1.5 transition-all duration-300">
-    <div className="relative rounded-lg overflow-hidden border border-white/20 bg-gray-900 shadow-[0_0_20px_0_rgba(255,255,255,0.25)]">
+  <div className="hover:translate-y-1.5 transition-all duration-300">
+    <div
+      className="relative rounded-lg overflow-hidden border border-white/20 bg-gray-900 transition-all duration-300 
+      hover:translate-y-1.5 hover:shadow-[0_0_20px_0_rgba(255,255,255,0.25)] shrink-0"
+    >
       <img
         src={item.cover}
         alt={item.title}
-        className="w-[263px] h-[406px] object-cover"
+        className="w-[195px] h-[268px] md:w-[263px] md:h-[406px] object-cover"
         onError={(e) => {
           e.target.style.background = "#1a1a2e";
           e.target.style.display = "none";
         }}
       />
+      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent"/>
       <div className="absolute bottom-2 left-2">
         <span className="bg-[#CB4699] text-white text-[15px] font-black px-1.5 py-0.5 rounded">
           {item.ch}
@@ -219,7 +223,7 @@ const MangaCard = ({ item, showRead = false }) => (
 
 // Horizontal scrollable row
 const CardRow = ({ items, showRead = false }) => (
-  <div className="flex items-center justify-center flex-wrap gap-5 mb-16">
+  <div className="flex items-center gap-5 overflow-x-auto overflow-y-hidden justify-start 2xl:justify-center pb-5">
     {items.map((item) => (
       <div key={item.id}>
         <MangaCard item={item} showRead={showRead} />
@@ -231,30 +235,29 @@ const CardRow = ({ items, showRead = false }) => (
 // Exclusive Content Card
 const ExclusiveCard = ({ item }) => (
   <div
-    className={`relative rounded-lg overflow-hidden border border-white/20 bg-gray-900 transition-all duration-300 hover:translate-y-1.5 hover:shadow-[0_0_20px_0_rgba(255,255,255,0.25)]`}
+    className={`relative rounded-lg overflow-hidden border border-white/20 bg-gray-900 transition-all duration-300 
+    hover:translate-y-1.5 hover:shadow-[0_0_20px_0_rgba(255,255,255,0.25)] shrink-0`}
   >
-    <div className="relative">
-      <img
-        src={item.cover}
-        alt={item.title}
-        className="w-[337px] h-[488px] object-cover"
-        onError={(e) => {
-          e.target.style.background = "#1a1a2e";
-          e.target.style.display = "none";
-        }}
-      />
-      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-3">
-        <p className="text-white font-black text-sm tracking-widest text-[20px]">
-          {item.title}
-        </p>
-        <p className="text-gray-400 text-[15px]">{item.creator}</p>
-        <div className="flex items-center gap-2 mt-1">
-          <span className="bg-[#CB4699] text-white text-[15px] font-black px-2 py-0.5 rounded">
-            {item.ch}
-          </span>
-          <span className="text-gray-300 text-[10px]">{item.type}</span>
-        </div>
+    <img
+      src={item.cover}
+      alt={item.title}
+      className="w-[195px] h-[268px] md:w-[337px] md:h-[488px] object-cover"
+      onError={(e) => {
+        e.target.style.background = "#1a1a2e";
+        e.target.style.display = "none";
+      }}
+    />
+    <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent" />
+    <div className="absolute bottom-0 left-0 right-0 p-3">
+      <p className="text-white font-black text-sm tracking-widest text-[20px]">
+        {item.title}
+      </p>
+      <p className="text-gray-400 text-[15px]">{item.creator}</p>
+      <div className="flex items-center gap-2 mt-1">
+        <span className="bg-[#CB4699] text-white text-[15px] font-black px-2 py-0.5 rounded">
+          {item.ch}
+        </span>
+        <span className="text-gray-300 text-[10px]">{item.type}</span>
       </div>
     </div>
   </div>
@@ -304,7 +307,7 @@ const HomePage = () => {
         {/* ── Exclusive Content ── */}
         <section className="px-4">
           <SectionHeader title="Exclusive Content" />
-          <div className="flex items-center justify-center flex-wrap gap-5">
+          <div className="flex items-center gap-5 overflow-x-auto overflow-y-hidden justify-start 2xl:justify-center pb-5">
             {exclusiveContent.map((item) => (
               <ExclusiveCard key={item.id} item={item} />
             ))}
